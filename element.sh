@@ -11,7 +11,7 @@ else
 
   if [[ -z $ATOMIC_NUMBER_TEST && -z $ATOMIC_SYMBOL_TEST && -z $ATOMIC_NAME_TEST ]]
   then
-    echo -e "\nI could not find that element in the database."
+    echo "I could not find that element in the database."
   else
     if [[ ! -z $ATOMIC_NUMBER_TEST ]]
     then
