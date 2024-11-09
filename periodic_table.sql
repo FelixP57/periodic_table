@@ -49,8 +49,8 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.elements (
     atomic_number integer NOT NULL,
-    symbol character varying(2),
-    name character varying(40)
+    symbol character varying(2) NOT NULL,
+    name character varying(40) NOT NULL
 );
 
 
@@ -63,10 +63,10 @@ ALTER TABLE public.elements OWNER TO freecodecamp;
 CREATE TABLE public.properties (
     atomic_number integer NOT NULL,
     type character varying(30),
-    atomic_mass numeric(9,6) NOT NULL,
+    atomic_mass numeric NOT NULL,
     melting_point_celsius numeric NOT NULL,
     boiling_point_celsius numeric NOT NULL,
-    type_id integer
+    type_id integer NOT NULL
 );
 
 
@@ -118,29 +118,29 @@ ALTER TABLE ONLY public.types ALTER COLUMN type_id SET DEFAULT nextval('public.t
 --
 
 INSERT INTO public.elements VALUES (1, 'H', 'Hydrogen');
-INSERT INTO public.elements VALUES (2, 'he', 'Helium');
-INSERT INTO public.elements VALUES (3, 'li', 'Lithium');
+INSERT INTO public.elements VALUES (2, 'He', 'Helium');
+INSERT INTO public.elements VALUES (3, 'Li', 'Lithium');
 INSERT INTO public.elements VALUES (4, 'Be', 'Beryllium');
 INSERT INTO public.elements VALUES (5, 'B', 'Boron');
 INSERT INTO public.elements VALUES (6, 'C', 'Carbon');
 INSERT INTO public.elements VALUES (7, 'N', 'Nitrogen');
 INSERT INTO public.elements VALUES (8, 'O', 'Oxygen');
-INSERT INTO public.elements VALUES (1000, 'mT', 'moTanium');
+INSERT INTO public.elements VALUES (1000, 'Mt', 'moTanium');
 
 
 --
 -- Data for Name: properties; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.properties VALUES (1, 'nonmetal', 1.008000, -259.1, -252.9, NULL);
-INSERT INTO public.properties VALUES (2, 'nonmetal', 4.002600, -272.2, -269, NULL);
-INSERT INTO public.properties VALUES (3, 'metal', 6.940000, 180.54, 1342, NULL);
-INSERT INTO public.properties VALUES (4, 'metal', 9.012200, 1287, 2470, NULL);
-INSERT INTO public.properties VALUES (5, 'metalloid', 10.810000, 2075, 4000, NULL);
-INSERT INTO public.properties VALUES (6, 'nonmetal', 12.011000, 3550, 4027, NULL);
-INSERT INTO public.properties VALUES (7, 'nonmetal', 14.007000, -210.1, -195.8, NULL);
-INSERT INTO public.properties VALUES (8, 'nonmetal', 15.999000, -218, -183, NULL);
-INSERT INTO public.properties VALUES (1000, 'metalloid', 1.000000, 10, 100, NULL);
+INSERT INTO public.properties VALUES (3, 'metal', 6.94, 180.54, 1342, 1);
+INSERT INTO public.properties VALUES (4, 'metal', 9.0122, 1287, 2470, 1);
+INSERT INTO public.properties VALUES (1, 'nonmetal', 1.008, -259.1, -252.9, 2);
+INSERT INTO public.properties VALUES (2, 'nonmetal', 4.0026, -272.2, -269, 2);
+INSERT INTO public.properties VALUES (6, 'nonmetal', 12.011, 3550, 4027, 2);
+INSERT INTO public.properties VALUES (7, 'nonmetal', 14.007, -210.1, -195.8, 2);
+INSERT INTO public.properties VALUES (8, 'nonmetal', 15.999, -218, -183, 2);
+INSERT INTO public.properties VALUES (5, 'metalloid', 10.81, 2075, 4000, 3);
+INSERT INTO public.properties VALUES (1000, 'metalloid', 1, 10, 100, 3);
 
 
 --
